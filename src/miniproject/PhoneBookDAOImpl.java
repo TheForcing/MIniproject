@@ -105,8 +105,28 @@ public String search(PhonebookVO vo) {
 }
 @Override
 public String exit(PhonebookVO vo) {
-	// TODO Auto-generated method stub
-	return null;
+	if(rs!=null) {
+		try {
+			rs.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	if(pstmt != null) {
+		try {
+			pstmt.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	if(conn!=null) {
+		try {
+			conn.close();
+		} catch(SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	conn= null;
 }
 	
 }
